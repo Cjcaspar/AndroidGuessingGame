@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">GuessingGame</string>
+    <string name="instructions">In this game you will have 5 chances to guess my random number, which is between 1 and 100. \n\nAfter each guess, I will let you know if your guess is higher or lower than my random number.\n\nGood Luck!</string>
+    <string name="enter_guess">Please enter your guess below.</string>
+    <string name="guess_low">Your number was lower than mine. Please try again.</string>
+    <string name="guess_high">Your number was higher than mine. Please try again.</string>
+    <string name="invalid_guess">Invalid guess. Please try again, with a number between 1 and 100.</string>
+    <string name="attempt_number">Attempt number: </string>
 </resources>

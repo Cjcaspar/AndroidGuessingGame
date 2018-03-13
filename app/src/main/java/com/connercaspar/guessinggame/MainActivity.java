@@ -1,5 +1,6 @@
 package com.connercaspar.guessinggame;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +14,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void screen2(View view) {
-        setContentView(R.layout.activity_game_screen);
+        Intent playGame = new Intent(this,GameActivity.class);
+        startActivity(playGame);
     }
 
 
