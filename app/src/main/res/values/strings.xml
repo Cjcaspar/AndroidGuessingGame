@@ -6,4 +6,7 @@
     <string name="guess_high">Your number was higher than mine. Please try again.</string>
     <string name="invalid_guess">Invalid guess. Please try again, with a number between 1 and 100.</string>
     <string name="attempt_number">Attempt number: </string>
+    <string name="out_of_guesses">You have run out of guesses. Would you like to play again?</string>
+    <string name="win">Congratulations! You have guessed my number correctly!</string>
+    <string name="my_number">My number was: </string>
 </resources>
