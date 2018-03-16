@@ -45,5 +45,23 @@
         app:layout_constraintTop_toTopOf="parent"
         android:textSize="24dp"/>
 
+    <ImageView
+        android:id="@+id/win_face"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:srcCompat="@mipmap/win_face"
+        tools:layout_editor_absoluteX="126dp"
+        tools:layout_editor_absoluteY="201dp" />
+
+    <ImageView
+        android:id="@+id/loss_face"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:srcCompat="@mipmap/loss_face"
+        tools:layout_editor_absoluteX="126dp"
+        tools:layout_editor_absoluteY="201dp" />
+
 
 </android.support.constraint.ConstraintLayout>

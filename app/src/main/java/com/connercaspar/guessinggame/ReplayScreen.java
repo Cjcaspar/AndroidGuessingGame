@@ -1,16 +1,21 @@
 package com.connercaspar.guessinggame;
 
 import android.content.Intent;
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ReplayScreen extends AppCompatActivity {
 
     private Button yes;
     private Button no;
+    private ImageView win;
+    private ImageView loss;
+
 
 
     @Override
@@ -55,6 +60,14 @@ public class ReplayScreen extends AppCompatActivity {
         if (replayScreen.hasExtra("number")) {
             TextView number = (TextView)findViewById(R.id.number_text_view);
             number.setText(replayScreen.getStringExtra("number"));
+        }
+        if (replayScreen.hasExtra("win")) {
+            win = findViewById(R.id.win_face);
+            win.setVisibility(View.VISIBLE);
+        }
+        else if (replayScreen.hasExtra("loss")) {
+            loss = findViewById(R.id.loss_face);
+            loss.setVisibility(View.VISIBLE);
         }
 }
 

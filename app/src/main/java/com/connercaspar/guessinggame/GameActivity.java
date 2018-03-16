@@ -59,6 +59,7 @@ public class GameActivity extends AppCompatActivity {
             Intent replayScreen = new Intent(this,ReplayScreen.class);
             replayScreen.putExtra("result", getResources().getString(R.string.win));
             replayScreen.putExtra("number", randomNum);
+            replayScreen.putExtra("win", "win");
             startActivity(replayScreen);
             finish();
         }
@@ -77,7 +78,8 @@ public class GameActivity extends AppCompatActivity {
         if (numGuess == 6) {
             Intent replayScreen = new Intent(this,ReplayScreen.class);
             replayScreen.putExtra("result", getResources().getString(R.string.out_of_guesses));
-            replayScreen.putExtra("number", randomNum);
+            replayScreen.putExtra("number", myNumberString);
+            replayScreen.putExtra("loss", "loss");
             startActivity(replayScreen);
             finish();
         }
