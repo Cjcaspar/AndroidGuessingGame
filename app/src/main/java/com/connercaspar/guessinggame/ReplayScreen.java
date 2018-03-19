@@ -22,10 +22,15 @@ public class ReplayScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_replay_screen);
-        getResult();
         yes = findViewById(R.id.yes_button);
         no = findViewById(R.id.no_button);
         listenForButtonPress();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        getResult();
     }
 
     private void listenForButtonPress() {
@@ -36,21 +41,12 @@ public class ReplayScreen extends AppCompatActivity {
             }
         });
 
-        no.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickNo();
-            }
-        });
     }
 
     public void clickYes() {
         finish();
     }
 
-    public void clickNo() {
-        System.exit(1);
-    }
     public void getResult() {
         Intent replayScreen = getIntent();
         if (replayScreen.hasExtra("result")) {

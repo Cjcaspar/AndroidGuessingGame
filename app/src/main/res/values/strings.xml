@@ -9,4 +9,10 @@
     <string name="out_of_guesses">You have run out of guesses. Would you like to play again?</string>
     <string name="win">Congratulations! You have guessed my number correctly! Would you like to play again?</string>
     <string name="my_number">My number was: </string>
+    <string name="guess_text_view">Enter your guess below</string>
+    <string name="submit">SUBMIT</string>
+    <string name="your_guess">Your Guess</string>
+    <string name="start">START</string>
+    <string name="instructions_text_view">Instructions:</string>
+    <string name="welcome">Welcome to the Guessing Game!</string>
 </resources>

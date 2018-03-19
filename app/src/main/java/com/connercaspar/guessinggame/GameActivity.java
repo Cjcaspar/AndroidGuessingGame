@@ -14,7 +14,7 @@ public class GameActivity extends AppCompatActivity {
 
     private EditText guess;
     private int numGuess;
-    int randomNum = randomNum();
+    private int randomNum;
     String attemptString;
     private Button submit;
     private TextView resultText;
@@ -27,14 +27,10 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_screen);
         guess = findViewById(R.id.guess);
-        numGuess = 1;
         attemptNum = (TextView)findViewById(R.id.attempt_text_view);
         resultText = (TextView)findViewById(R.id.result_text_view);
-        attemptString = getResources().getString(R.string.attempt_number) + numGuess;
-        attemptNum.setText(attemptString);
         submit = findViewById(R.id.submit);
-
-
+        startGame();
         submit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 submitClicked();
@@ -42,6 +38,12 @@ public class GameActivity extends AppCompatActivity {
         });
     }
 
+    private void startGame() {
+        numGuess = 1;
+        attemptString = getResources().getString(R.string.attempt_number) + numGuess;
+        attemptNum.setText(attemptString);
+        randomNum = randomNum();
+    }
 
 
     private int randomNum(){
@@ -49,43 +51,43 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void submitClicked() {
-        int guessNum = Integer.parseInt(guess.getText().toString());
-        myNumberString = getResources().getString(R.string.my_number) + randomNum;
-
-        if (guessNum >= 101 || guessNum <= 0) {
+        int guessNum = -1;
+        try {
+            guessNum = Integer.parseInt(guess.getText().toString());
+        }catch (Exception e) {
             resultText.setText(getResources().getString(R.string.invalid_guess));
+            guess.getText().clear();
         }
-        else if (guessNum == randomNum) {
-            Intent replayScreen = new Intent(this,ReplayScreen.class);
-            replayScreen.putExtra("result", getResources().getString(R.string.win));
-            replayScreen.putExtra("number", randomNum);
-            replayScreen.putExtra("win", "win");
-            startActivity(replayScreen);
-            finish();
-        }
-        else if (guessNum > randomNum) {
-            resultText.setText((getResources().getString(R.string.guess_high)));
-            numGuess++;
-            attemptString = getResources().getString(R.string.attempt_number) + numGuess;
-            attemptNum.setText(attemptString);
-        }
-        else if (guessNum < randomNum) {
-            resultText.setText(getResources().getString(R.string.guess_low));
-            numGuess++;
-            attemptString = getResources().getString(R.string.attempt_number) + numGuess;
-            attemptNum.setText(attemptString);
-        }
-        if (numGuess == 6) {
-            Intent replayScreen = new Intent(this,ReplayScreen.class);
-            replayScreen.putExtra("result", getResources().getString(R.string.out_of_guesses));
-            replayScreen.putExtra("number", myNumberString);
-            replayScreen.putExtra("loss", "loss");
-            startActivity(replayScreen);
-            finish();
-        }
-
-
-
+        myNumberString = getResources().getString(R.string.my_number) + randomNum;
+            if (guessNum >= 101 || guessNum <= 0) {
+                resultText.setText(getResources().getString(R.string.invalid_guess));
+            } else if (guessNum == randomNum) {
+                Intent replayScreen = new Intent(this, ReplayScreen.class);
+                replayScreen.putExtra("result", getResources().getString(R.string.win));
+                replayScreen.putExtra("number", randomNum);
+                replayScreen.putExtra("win", "win");
+                startActivity(replayScreen);
+                startGame();
+            } else if (guessNum > randomNum) {
+                resultText.setText((getResources().getString(R.string.guess_high)));
+                numGuess++;
+                attemptString = getResources().getString(R.string.attempt_number) + numGuess;
+                attemptNum.setText(attemptString);
+            } else if (guessNum < randomNum) {
+                resultText.setText(getResources().getString(R.string.guess_low));
+                numGuess++;
+                attemptString = getResources().getString(R.string.attempt_number) + numGuess;
+                attemptNum.setText(attemptString);
+            }
+            if (numGuess == 6) {
+                Intent replayScreen = new Intent(this, ReplayScreen.class);
+                replayScreen.putExtra("result", getResources().getString(R.string.out_of_guesses));
+                replayScreen.putExtra("number", myNumberString);
+                replayScreen.putExtra("loss", "loss");
+                startActivity(replayScreen);
+                startGame();
+            }
+            guess.getText().clear();
     }
 
 }

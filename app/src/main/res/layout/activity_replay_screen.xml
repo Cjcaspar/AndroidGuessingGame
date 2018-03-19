@@ -10,19 +10,15 @@
         android:id="@+id/yes_button"
         android:layout_width="144dp"
         android:layout_height="60dp"
-        android:text="Yes"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="8dp"
+        android:text="Play Again"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="16dp"/>
-
-    <Button
-        android:id="@+id/no_button"
-        android:layout_width="144dp"
-        android:layout_height="60dp"
-        android:text="No"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginRight="16dp"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/number_text_view"
@@ -49,19 +45,31 @@
         android:id="@+id/win_face"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:visibility="invisible"
-        app:srcCompat="@mipmap/win_face"
-        tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="201dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/win_face" />
 
     <ImageView
         android:id="@+id/loss_face"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="107dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:visibility="invisible"
-        app:srcCompat="@mipmap/loss_face"
-        tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="201dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/loss_face" />
 
 
 </android.support.constraint.ConstraintLayout>
